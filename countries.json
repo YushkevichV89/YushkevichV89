@@ -1,0 +1,32 @@
+[
+  {
+    "code": "RU",
+    "name": "Россия",
+    "population": "146 745 098",
+    "image": "https://uploads-ssl.webflow.com/5b475a2249f3e1fcb3a28779/5d38c997706dfe70c6945ce2_moscou-St.Basil-ConvertImage.jpg"
+  },
+  {
+    "code": "JP",
+    "name": "Япония",
+    "population": "124 776 364",
+    "image": "https://avatars.mds.yandex.net/get-pdb/226447/a2e110b8-a159-4bc9-985f-787cf1982a47/s1200?webp=false"
+  },
+  {
+    "code": "SE",
+    "name": "Швеция",
+    "population": "10 327 589",
+    "image": "http://worldtaxes.ru/wp-content/uploads/2019/04/SHvetsiya.jpg"
+  },
+  {
+    "code": "FR",
+    "name": "Франция",
+    "population": "67 022 000",
+    "image": "https://s1.1zoom.ru/big3/151/351479-admin.jpg"
+  },
+  {
+    "code": "GB",
+    "name": "Великобритания",
+    "population": "66 273 576",
+    "image": "https://versiya.info/uploads/posts/2018-04/1524731454_london.jpg"
+  }
+]

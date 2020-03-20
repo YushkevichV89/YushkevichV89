@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="countryApp">
+<head>
+    <meta charset="utf-8">
+    <title>Коды стран</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script>
+        var countryApp = angular.module('countryApp', []);
+        countryApp.controller('CountryCtrl', function ($scope, $http){
+            $http.get('countries.json').success(function(data) {
+                $scope.countries = data;
+            });
+            $scope.editUser = function() {
+                var newObject=
+                {
+                    code: "RU",
+                    name: "Россия",
+                    population: "146 745 098",
+                    image: ""
+                };
+                newObject.code=$scope.name1;
+                newObject.name=$scope.name2;
+                newObject.population=$scope.name3;
+                $scope.countries.push(newObject);
+            };
+        });
+    </script>
+</head>
+<body ng-controller="CountryCtrl">
+<h2>Коды стран</h2>
+<table class="table table-striped">
+    <tr>
+        <th>Код</th>
+        <th>Страна</th>
+        <th>Население</th>
+        <th>Фото</th>
+    </tr>
+    <tr ng-repeat="country in countries">
+        <td>{{country.code}}</td>
+        <td>{{country.name}}</td>
+        <td>{{country.population}}</td>
+        <td><img src={{country.image}} style="width:150px;height: 80px"> </td>
+    </tr>
+    <input class="w3-input w3-border" type="text" ng-model="name1">
+    <input class="w3-input w3-border" type="text" ng-model="name2">
+    <input class="w3-input w3-border" type="text" ng-model="name3">
+    <button class="w3-btn w3-green w3-ripple" ng-click="editUser()">&#9998; Create New User</button>
+</table>
+</body>
+</html>
