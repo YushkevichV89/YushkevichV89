@@ -25,28 +25,24 @@ int main(int argc, char const *argv[]) {
       case 1:
       lseek(fd, 0, SEEK_SET);
       ret = read(fd, buf, BUF_SIZE);
-      buf[ret] = '\0';
       printf("%s\n", buf);
       close(fd);
       break;
       case 2:
       lseek(fd, 9, SEEK_SET);
       ret = read(fd, buf, BUF_SIZE);
-      buf[ret] = '\0';
       printf("%s\n", buf);
       close(fd);
       break;
       case 3:
       lseek(fd, 18, SEEK_SET);
       ret = read(fd, buf, BUF_SIZE);
-      buf[ret] = '\0';
       printf("%s\n", buf);
       close(fd);
       break;
       case 4:
       lseek(fd, 27, SEEK_SET);
       ret = read(fd, buf, BUF_SIZE);
-      buf[ret] = '\0';
       printf("%s\n", buf);
       close(fd);
       break;
