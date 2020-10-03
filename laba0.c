@@ -4,31 +4,24 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-int main()
+int main(int argc, char *argv[])
 {
-  pid_t pid;
   int rv;
-  switch(pid=fork()) {
+  switch(rv=fork())
   case -1:
-          perror("fork"); /* произошла ошибка */
-          exit(1); /*выход из родительского процесса*/
+          perror("fork"); 
+          return 1;
   case 0:
-          printf(" CHILD: Это процесс-потомок!\n");
-          printf(" CHILD: Мой PID -- %d\n", getpid());
-          printf(" CHILD: PID моего родителя -- %d\n",
-              getppid());
-          printf(" CHILD: Введите мой код возврата (как можно меньше):");
-          scanf(" %d", &pid);
-          printf(" CHILD: Выход!\n");
-          exit(rv);
+          if(execvp(argv[1], &argv[2]==-1)){
+		     perror("error");
+			 return 1;
+		  };
+		  break;
   default:
-          printf("PARENT: Это процесс-родитель!\n");
-          printf("PARENT: Мой PID -- %d\n", getpid());
-          printf("PARENT: PID моего потомка %d\n",pid);
-          printf("PARENT: Я жду, пока потомок не вызовет exit()...\n");
-          wait(pid);
-          printf("PARENT: Код возврата потомка:%d\n",
-                   WEXITSTATUS(rv));
-          printf("PARENT: Выход!\n");
+          if (wait(&rv)>=0)
+            printf("PARENT:", WEXITSTATUS(rv));
+		  break;
+          
   }
+  return 0;
 }
