@@ -79,7 +79,8 @@ int main(int argc, char* argv[])
       printf(" %s",getgrgid(fileStat.st_gid)->gr_name);
 
 
-      if(S_ISREG(fileStat.st_mode)) printf(" %-9jd",fileStat.st_size);
+      if(S_ISREG(fileStat.st_mode)) 
+          printf(" %d",fileStat.st_size);
       else
       {
           printf("          ");
